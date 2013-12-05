@@ -1,3 +1,9 @@
-The dump file was created from the database using this command (provided here in the hope that it would be helpful for someone trying to restore it):
+compare.sql was created from the database using this (provided here in the hope that it would be helpful for someone trying to restore it):
 
 pg_dump -C -c  -f compare.sql -F c -O compare
+
+compare_simple.sql was created using:
+
+pg_dump -f compare_simple.sql compare
+
+Also, please note that these dumps are from data which was scraped around June 2013. So it is dated.
