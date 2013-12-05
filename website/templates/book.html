@@ -1,0 +1,191 @@
+$def with (book_details,descr)
+$code:
+	i=book_details[0]
+	url = "http://static.landmarkonthenet.com/{0}/m200/".format(i.isbn)
+	collection=0
+	a=0
+	
+<html>
+<head>
+	<title> $i.book_name : JustCompare!</title>
+	<script type="text/javascript" src="/justcompare/static/book/jquery.js"> </script>   
+	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+	<link href="http://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="/justcompare/static/book/sjquery-ui.css" />   
+	<script type="text/javascript" src="/justcompare/static/book/auto_script.js"> </script>
+	<script type="text/javascript" src="/justcompare/static/book/jquery-ui.min.js"> </script>
+	<link rel="stylesheet" type="text/css" href="/justcompare/static/book/style.css" />
+</head>
+
+<body bgimage src="/justcompare/static/book/booksbg.jpg" style="float:left; width:100%; height=100%; margin-left:30px;"/>
+
+		<div class="div1">
+			<a href="/justcompare"><img src="/justcompare/static/book/logo.png" style="float:left; width:200px; height=5px; margin-left:30px;"onError="this.onerror=null;this.src='/justcompare/static/imagemissing.png';"/></a>
+			<div class="dark">
+				<form action="/justcompare/search" id="search" name="q" method="get">
+					<span><input id="search" name="q" type="text" class="search rounded" placeholder="Enter your next search!"></span>
+				</form>
+			</div>
+			<a href="/justcompare/about" class="about_link" style="float: right; margin-right: 7px; text-decoration: underline; margin-top: -65px; font-size: 20px; font-family: 'Lobster Two';">About this site</a>
+		</div>
+
+
+		<div class="div2">
+			<img class="image1" src=$url onError="this.onerror=null;this.src='/justcompare/static/imagemissing.png';"/>
+			<div class="bookdesc">
+			
+			<p class="bktitle">
+
+			<br>
+			<span class="arvofontheavy">
+			$i.book_name</span> <span class="arvofontnorm">($i.isbn)</span>
+			</span>
+			</br>
+			</p>
+		<!--	<div class="underline">
+			</div> -->
+			
+			<div class="midbottomclmn">
+				<p class="desc"><h2>
+					<span class="arvofontnorm">
+					$if i.author_name != 'NIL':
+						--by $i.author_name<br/>
+					$else:
+						--Unknown Author
+					</span>
+					
+					</h2>
+					<span class="arvofontnorm">
+					$descr
+					</span>
+
+				</p>
+			</div>
+			<!--	<div class="thrdcol">
+					<img class="price" src="/justcompare/static/book/price.png"/>
+					<div class="priceval">
+					</div>
+					<img class="avlbl" src="/justcompare/static/book/available.png"/>
+					<img class="priceval" src="/justcompare/static/book/flipkart.png">
+					<a href="http://www.flipkart.com"></a>
+				</img>
+				</div>-->
+			</div>
+		</div>
+		$if i.hs18_price is not None:
+			<div class="div3"><img class="weblogo" src="/justcompare/static/book/homeshop18.png"/>
+				<div class="pricediv">
+					<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+					$i.hs18_price
+				</div>
+				<a href='$i.hs18_booklink' target='_blank' class="othrbuttn">VISIT SELLER SITE  >></a>
+			</div>
+
+		$if i.fk_price is not None:
+			<div class="div3"><img class="weblogo" src="/justcompare/static/book/flipkart.png"/>
+				<div class="pricediv">
+					<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+					$i.fk_price
+				</div>
+				<a href='$i.fk_booklink' target='_blank' class="othrbuttn">VISIT SELLER SITE  >></a>
+			</div>
+
+		$if i.infibeam_price is not None:
+			<div class="div3"><img class="weblogo" src="/justcompare/static/book/infibeam.jpg"/>
+				<div class="pricediv">
+					<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+					&nbsp;$i.infibeam_price
+				</div>
+				<a href='$i.infibeam_booklink' target='_blank' class="othrbuttn">VISIT SELLER SITE  >></a>
+			</div>
+
+		$if i.indiaplaza_price is not None:
+			<div class="div3"><img class="weblogo" src="/justcompare/static/book/indiaplaza.jpg"/>
+				<div class="pricediv">
+					<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+					$i.indiaplaza_price
+				</div>
+				$ a = i.indiaplaza_booklink + "?affid=141501"
+				<a href='$a' target='_blank' class="othrbuttn">VISIT SELLER SITE  >></a>
+			</div>
+		
+		$if i.crossword_price is not None:
+			<div class="div3"><img class="weblogo" src="/justcompare/static/book/crossword.png"/>
+				<div class="pricediv">
+					<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+					$i.crossword_price
+				</div>
+				<a href='$i.crossword_booklink' target='_blank' class="othrbuttn">VISIT SELLER SITE  >></a>
+			</div>
+		$if i.bookadda_price is not None:
+			<div class="div3"><img class="weblogo" src="/justcompare/static/book/bookadda.jpg"/>
+				<div class="pricediv">
+					<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+					$i.bookadda_price
+				</div>
+				<a href='$i.bookadda_booklink' target='_blank' class="othrbuttn">VISIT SELLER SITE  >></a>
+			</div>
+		$if i.landmark_price is not None:
+			<div class="div3"><img class="weblogo" src="/justcompare/static/book/landmark.jpg"/>
+				<div class="pricediv">
+					<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+					$i.landmark_price
+				</div>
+				<a href='$i.landmark_booklink' target='_blank' class="othrbuttn">VISIT SELLER SITE  >></a>
+			</div>
+
+		
+
+
+
+
+<!--		<div class="div3"><img class="weblogo" src="/justcompare/static/book/indiaplaza.jpg"/>
+			<div class="pricediv">
+				<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+			</div>
+			<a href="http://www.indiaplaza.com" class="othrbuttn">VISIT SELLER SITE  >></a>
+		</div>
+
+
+		<div class="div3"><img class="weblogo" src="/justcompare/static/book/homeshop18.png"/>
+			<div class="pricediv">
+				<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+			</div>
+			<a href="http://www.homeshop18.com" class="othrbuttn">VISIT SELLER SITE  >></a>
+		</div>
+
+
+		<div class="div3"><img class="weblogo" src="/justcompare/static/book/infibeam.jpg"/>
+			<div class="pricediv">
+				<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+			</div>
+			<a href="http://www.infibeam.com" class="othrbuttn">VISIT SELLER SITE  >></a>
+		</div>
+
+
+		<div class="div3"><img class="weblogo" src="/justcompare/static/book/bookadda.jpg"/>
+			<div class="pricediv">
+				<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+			</div>
+			<a href="http://www.bookadda.com" class="othrbuttn">VISIT SELLER SITE  >></a>
+		</div>
+		<div class="div3"><img class="weblogo" src="/justcompare/static/book/crossword.png"/>
+			<div class="pricediv">
+				<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+			</div>
+			<a href="http://www.crossword.in" class="othrbuttn">VISIT SELLER SITE  >></a>
+		</div>
+		<div class="div3"><img class="weblogo" src="/justcompare/static/book/landmark.jpg"/>
+			<div class="pricediv">
+				<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+			</div>
+			<a href="http://www.crossword.in" class="othrbuttn">VISIT SELLER SITE  >></a>
+		</div>
+		<div class="div3"><img class="weblogo" src="/justcompare/static/book/indiatimes.png"/>
+			<div class="pricediv">
+				<img class="rupeesymbl" src="/justcompare/static/book/rupee.png"/>
+			</div>
+			<a href="http://shopping.indiatimes.com/" class="othrbuttn">VISIT SELLER SITE  >></a>
+		</div> -->
+</body>
+</html>

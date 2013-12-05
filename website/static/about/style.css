@@ -1,0 +1,88 @@
+body
+{
+width:100%; margin:0px;
+background-image: url("/justcompare/static/bg_2.jpg");
+background-attachment:fixed;
+background-position:center;
+font-family: 'Raleway', 'Helvetica', sans-serif;
+}
+.border
+{
+
+}
+
+.header
+{
+	width:100%;
+	left:0;
+	color: #ffffff;
+	height: 20px;
+	font-size: 17px;
+	font-family: 'Lobster Two',cursive;
+	text-align: center;
+	background-image:url("/justcompare/static/black.png"); 
+}
+
+a
+{
+	color:#EB5A00;
+}
+
+a:hover
+{
+	color:#D10000;
+}
+
+.div1
+{	width:700px;
+	height:450px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:70px;
+	-moz-border-radius:10px;
+  	-webkit-border-radius:10px;
+  	border-radius:20px;
+}
+
+#overlay 
+{ 
+	background-image:url("/justcompare/static/black.png"); 
+}
+
+.rounded {
+	border-radius:15px;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+}
+
+.bottom-bar
+{
+	position:fixed;
+	width:100%;
+	bottom:0;
+	color: #ffffff;
+	height: 22px;
+	background-image:url("/justcompare/static/black.png"); 
+	border-top: 1px solid #000;
+	font-size: 15px;
+	font-family: 'Lobster Two';
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.proj_details
+{
+	margin-top: 6%;
+	color:white;
+	width:100%;
+	font-family: 'Arvo', serif;
+	font-weight: 400;
+	font-size: 14;
+}
+
+p
+{
+	margin-left: 3%;
+	margin-right: 3%;
+	text-align: justify;
+}

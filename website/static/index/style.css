@@ -1,0 +1,103 @@
+input:focus{outline:none;}
+body
+{
+width:100%; margin:0px;
+background-image: url("/justcompare/static/bg_2.jpg");
+background-attachment:fixed;
+background-position:center;
+
+/*background: url(/static/bg_2.jpg) fixed no-repeat;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;*/
+font-family: 'Raleway', 'Helvetica', sans-serif;
+}
+.border
+{
+	
+
+}
+
+a
+{
+	color:#EB5A00;
+}
+
+a:hover
+{
+	color:#D10000;
+}
+
+.header
+{
+	width:100%;
+	left:0;
+	color: #ffffff;
+	height: 20px;
+	font-size: 17px;
+	font-family: 'Lobster Two',cursive;
+	text-align: center;
+	background-image:url("/justcompare/static/black.png"); 
+}
+
+.div1
+{	width:550px;
+	height:250px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:200px;
+	-moz-border-radius:10px;
+  	-webkit-border-radius:10px;
+  	border-radius:20px;
+}
+
+#overlay 
+{ 
+	background-image:url("/justcompare/static/black.png"); 
+}
+
+form{
+	width:100px;
+	margin:0 0;
+}
+.search {
+	padding:6px 15px 6px 30px;
+	margin:0px;
+	background: url('search.png') no-repeat 6px 4px;
+}
+.rounded {
+	border-radius:15px;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+}
+input[type=text]{
+	color:#bcbcbc;
+}
+
+.dark {
+	width:100%;
+	height:50px;
+	padding:40px 25px;
+}
+
+.dark input[type=text]{
+	width: 500px;
+	border:1px solid #2a2e31;
+	background-color:#101010;
+	color:#ffffff;
+}
+
+.bottom-bar
+{
+	position:fixed;
+	width:100%;
+	bottom:0;
+	color: #ffffff;
+	height: 22px;
+	background-image:url("/justcompare/static/black.png"); 
+	border-top: 1px solid #000;
+	font-size: 18px;
+	font-family: 'Lobster Two';
+	text-align: center
+}

@@ -1,0 +1,3 @@
+The dump file was created from the database using this command (provided here in the hope that it would be helpful for someone trying to restore it):
+
+pg_dump -C -c  -f compare.sql -F c -O compare

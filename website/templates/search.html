@@ -1,0 +1,102 @@
+$def with (q, ordered)
+$code:
+	count=0
+	rposition = "div3_5size div7position border"
+	lposition = "div3_5size div6position border"
+	fposition = "divfull"
+	
+<html>
+<head>
+	<!-- <link href='http://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'> -->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'> -->
+	<link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+	<!--<link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>-->
+	<link rel="icon" type="image/png" href="/justcompare/static/favicon.ico">
+	<script type="text/javascript" src="/justcompare/static/search/jquery.js"> </script>
+	<link rel="stylesheet" type="text/css" href="/justcompare/static/search/jquery-ui.css" />   
+	<script type="text/javascript" src="/justcompare/static/search/auto_script.js"> </script>
+	<link rel="stylesheet" type="text/css" href="/justcompare/static/search/style.css" />
+	<title> JustCompare: Search results for $q </title>
+</head>
+
+<body bgcolor="#E6E6FA" font="Open Sans Semibold" class="back">
+	<div id="container">
+		<div class="div1 header"><a href="/justcompare"><img src="/justcompare/static/logo.png" style="float:left; width:200px;"/></a>
+			<div class="dark">
+				<form id="searchform" action="/justcompare/search" method="get">
+					<span><input id="search" name="q" type="text" class="search rounded" placeholder="Showing results for '$q'. Enter your next search!"></span>
+				</form>
+			</div>
+			<a href="/justcompare/about" style="float: right; margin-right: 7px; text-decoration: underline; margin-top: -65px; font-size: 20px; font-family: 'Lobster Two';">About this site</a>
+		</div>
+		<div id="body">
+			$if ordered:
+				$for i in ordered:
+					$code:
+						#!temp = i.isbn[-1:]
+						url = "http://static.landmarkonthenet.com/{0}/m100/".format(i.isbn)
+						#!url = "http://images0{0}.bookadda.com/images/thumb/".format(temp)
+						#!temp = i.isbn[-3:]+"/"+i.isbn+".jpg"
+						#!url = url + temp
+						booklink = "book/"+i.isbn
+					$if count%2==0:
+						<div class="$lposition" id="overlay">
+							<a class="image2" href=$booklink>
+								<img src=$url id="curved" class = "book_img" alt='$i.book_name' onError="this.onerror=null;this.src='/justcompare/static/imagemissing.png';" />
+							</a>
+							<div class="detail_div">
+								<a href=$booklink>
+									<span class = "arvofontheavy">$i.book_name</span>
+								</a>
+								<br/>
+								<span class = "arvofontnorm" style="font-size:17">
+								$if i.author_name != 'NIL':
+									--by $i.author_name<br/>
+								$else:
+									Unknown Author<br/>
+								</span>
+								<span class="arvofontnorm" style="font-size:15">ISBN: $i.isbn</span>
+							</div>
+						</div>
+					$else:
+						<div class="$rposition" id="overlay">
+							<a class="image2" href=$booklink>
+								<img src=$url id="curved" class = "book_img" alt='$i.book_name' onError="this.onerror=null;this.src='/justcompare/static/imagemissing.png';" />
+							</a>
+							<div class="detail_div">
+								<a href=$booklink>
+									<span class = "arvofontheavy">$i.book_name</span>
+								</a>
+								<br/>
+								<span class = "arvofontnorm" style="font-size:17">
+								$if i.author_name != 'NIL':
+									--by $i.author_name<br/>
+								$else:
+									Unknown Author<br/>
+								</span>
+								<span class="arvofontnorm" style="font-size:15">ISBN: $i.isbn</span>
+							</div>
+						</div>
+					$code:
+						count = count + 1
+				
+			$else:
+				<div class="$lposition" id="overlay">
+					<h5>
+						<p style="left-margin:5px;right-margin:5px;">Unfortunately we have no matching books.
+						We are continually updating our repository. 
+						So rest assured with the knowledge that if 
+						someone is selling this book it will show 
+						up here very soon!</p>
+		
+					</h5>
+				</div>
+			</div>
+		<div class="bottom-bar">
+			<span style="float:right;">Site Design, Logo © JustCompare.in</span>
+			<span style="float:left;"> Crafted with love in Bangalore.</span>
+		</div>
+	</div>
+</body>
+</html>

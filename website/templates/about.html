@@ -1,0 +1,47 @@
+$def with (count)
+<html>
+<head>
+	<title>
+		ABOUT - JustCompare(Beta) - Price comparision made easy!
+	</title>
+	<link rel="stylesheet" type="text/css" href="/justcompare/static/about/style.css" />
+	<link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Arvo:400' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="/justcompare/static/index/jquery.js"> </script>
+	<link rel="shortcut icon" href="/justcompare/static/favicon.ico?v=2"/>
+	<link rel="icon" type="image/png" href="/justcompare/static/favicon.ico"/>         
+	<link rel="stylesheet" type="text/css" href="/justcompare/static/index/jquery-ui.css" />   
+	<script type="text/javascript" src="/justcompare/static/index/auto_script.js"> </script>
+	<script type="text/javascript" src="/justcompare/static/index/jquery-ui.min.js"> </script>
+</head>
+<body>
+	<div class="header">
+		"So many books, so little time" &nbsp; -&nbsp;<a href="http://en.wikipedia.org/wiki/Frank_Zappa" target="_blank" style="color:#FFFFFF; text-decoration:none;" >Frank Zappa</a>
+	</div>
+	<div class="div1" id= "overlay" ><a href="/justcompare"><img src="/justcompare/static/logo_crop.png" style="width:400px; margin-left:20%;margin-right:auto; margin-top: 25px"/></a><br/>
+		
+		<div class="proj_details">
+			<p>
+				Hi! I am Chaitanya. JustCompare is a price comparison engine that <a href="http://www.cse.buffalo.edu/~cnettem">I</a> created as a project. Its primary purpose as the name suggests is to provide a web interface which allows users to compare prices of books.
+			</p>
+
+			<p>
+				It gathers information using web scrapers which were programmed specifically to gather book prices and other details from leading Indian retailers.  Once the data is gathered it is stored in a postgresql database from where it is fetched for display on the website.
+			</p>
+
+			<p>
+				The scrapers were written in python. <a href="http://webpy.org/">Web.py</a> was used as the web framework for the app and it is currently hosted using the same with apache and mod_wsgi. The code and database dump is available on <a href="http://www.github.com/chaitanyanettem/justcompare">Github</a>.
+			</p>
+
+			<p>
+				Because its been a while since the scrapers were run (four months to be precise), the prices of books on the seller sites have changed. However I am planning on running the scrapers again around the 20th of December (once my exams are over) so be sure to check again!
+			</p>
+		</span>
+		</div>
+	
+	</div>
+	<div class="bottom-bar">
+		<span style="margin-left:auto;font-size:18px">Currently indexing $count[0]['count'] awesome books!</span>
+	</div>
+</body>
+</html>

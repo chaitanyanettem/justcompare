@@ -1,0 +1,33 @@
+$def with (count)
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+	<title>
+		JustCompare(Beta) - Price comparision made easy!
+	</title>
+	<script type="text/javascript" src="/justcompare/static/index/jquery.js"> </script>
+	<link rel="shortcut icon" href="/justcompare/static/favicon.ico?v=2"/>
+	<link rel="icon" type="image/png" href="/justcompare/static/favicon.ico"/>       
+	<link rel="stylesheet" type="text/css" href="/justcompare/static/index/jquery-ui.css" />   
+	<script type="text/javascript" src="/justcompare/static/index/auto_script.js"> </script>
+	<script type="text/javascript" src="/justcompare/static/index/jquery-ui.min.js"> </script>
+	<link rel="stylesheet" type="text/css" href="/justcompare/static/index/style.css" />
+</head>
+<body>
+	<div class="header">
+		"So many books, so little time" &nbsp; -&nbsp;<a href="http://en.wikipedia.org/wiki/Frank_Zappa" target="_blank" style="color:#FFFFFF; text-decoration:none;" >Frank Zappa</a>
+		<a href="/justcompare/about" style="float:right; margin-right:7px; text-decoration:underline;">About this site</a>
+	</div>
+	<div class="div1" id= "overlay" ><img src="/justcompare/static/logo.png" style="float:left; width:500px; height=18px; margin-left:30px;"/>
+		<div class="dark">
+			<form id="searchform" action="/justcompare/search" method="get">
+				<span><input autofocus id="search" name="q" type="text" autocomplete="off" class="search rounded" placeholder="What will you search for today? Start typing!"></span>
+			</form>
+		</div>
+	</div>
+	<div class="bottom-bar">
+		<span>Currently indexing $count[0]['count'] awesome books!</span>
+	</div>
+</body>
+</html>

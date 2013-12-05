@@ -1,0 +1,30 @@
+#header {
+    background-color: #13768a;
+    width: 962px;
+    height: 207px;
+    margin-right: auto;
+    margin-left: auto;
+    clear: both;
+}
+
+
+#logo {
+    background-image:url('logo.png');
+    height: 207px;
+    width: 250px;
+    margin-right: 0px;
+    padding: 0px;
+    }
+
+    #left {
+    width:712px;
+    height: 207px;
+}
+
+#slideshow {
+    background-color: #137387;
+    width: 686px;
+    height: 144px;
+    margin-right: auto;
+    margin-left: auto;
+}
