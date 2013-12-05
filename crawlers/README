@@ -1,0 +1,5 @@
+Please be aware that all the crawlers will create a log file of the same name. So before initiating a crawl you should move each crawler into its own folder. Also each crawler needs to access isbncon.py so you should make sure that it is the path by either keeping it in the same folder or keeping it somewhere the system can detect it.
+
+Also, the BeautifulSoup, psycopg2 and requests libraries need to be installed for the crawlers to work.
+
+Please note that flipkart.py, bookadda.py are not functional currently and homeshop18 is buggy. Work was recently started to update these crawlers. You can have a look at the current (incomplete) code in the 'crawlers_v2' directory.
