@@ -77,11 +77,14 @@ try:
         soup2=BeautifulSoup(var2.text)
         line2=soup2.find('div',{"class":"search-summary"})
         no=re.findall(' \d+ ',str(re.findall(' \d+ ',line2.text)))
-        pages=int(no[0])
-        print "o"
-        while pages%16!=0:
-            pages=pages+1
-        print "o"
+        books_count=int(no[0])
+        #Debug:print "o"
+        if books_count%16!=0:
+            if books_count<16:
+                pages=books_count+(16-books_count)
+            else:
+                pages=books_count+(books_count-16)
+        #Debug:print "o"
         pages=pages/16
         i=1
         while i<=pages:
