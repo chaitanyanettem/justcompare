@@ -88,10 +88,10 @@ while True:
 	current_category = category.readline()
 	if current_category.startswith('#'):
 		break
+	#Debug:
 	print "Current Category:",current_category
 	logging = ''.join([str(datetime.now()), " : ", current_category])
 	log.write(logging)
-	print "i am here!"
 	pr_location = current_category.find('pr?')
 	url_parameters[1] = current_category[pr_location+3:-1]
 	url = ''.join([current_category[:pr_location+3],url_parameters[0],url_parameters[1],url_parameters[2]])
@@ -102,16 +102,14 @@ while True:
 		#soup = BeautifulSoup(BeautifulSoup(current_category_page.text).prettify(formatter='none'))
 		book_boxes = soup.findAll('div',{'class':'browse-product'})
 		for book in book_boxes:
-			title_wrapper_div = book.find('div',{'class':'lu-title-wrapper'})
+			#title_wrapper_div = book.find('div',{'class':'lu-title-wrapper'})
 			a_links = book.findAll('a')
-			print a_links
-			book_name = str(a_links[0].string)
-			book_link = a_links[0].get('href')
+			book_name = str(a_links[2].string)
+			book_link = ''.join(["http://www.flipkart.com",a_links[0].get('href')])
 			author_name = str(a_links[1].string)
 			book_price = book.find('div',{'class':'pu-final'}).text
-			print book_name,":",author_name,":",book_price,"\n"
-			exit()
+			book_price = int((book_price.strip())[3:]) #[3:] removes leading 'Rs. '
+			print book_name,"|",author_name,"|",book_price,"|",book_link,"\n"
 		soup.findAll('a',)
 #except Exception, e:
-print "a"
-print traceback.print_exc()
+	#print traceback.print_exc()
