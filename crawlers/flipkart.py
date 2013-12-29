@@ -1,4 +1,5 @@
 #!/usr/bin/python
+#This flipkart crawler does not work. Check the crawlers_v2/ directory in the parent for a working version of this crawler.
 import traceback
 import psycopg2
 import requests
