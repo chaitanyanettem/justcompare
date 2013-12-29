@@ -13,6 +13,9 @@ from datetime import datetime
 data = {}
 url_parameters = ['p%5B%5D=sort&','','&start={number}&ajax=true']
 
+author_name_size = 200
+book_name_size = 1000
+
 def requests_passable(url):
     print "url:",url
     max_repeats = 3
@@ -111,17 +114,20 @@ while True:
         current_category_page = requests_passable(url.format(number=number))
         number += 20
         soup = BeautifulSoup(BeautifulSoup(str(current_category_page.text)).prettify(formatter=None))
-        #soup = BeautifulSoup(BeautifulSoup(current_category_page.text).prettify(formatter='none'))
+        #no-results check:
+        noResults = soup.find('div',{'class':'noResults'})
+        if noResults:
+            break
         book_boxes = soup.findAll('div',{'class':'browse-product'})
         data = {}
         for book in book_boxes:
             #title_wrapper_div = book.find('div',{'class':'lu-title-wrapper'})
             a_links = book.findAll('a')
-            book_name = str(a_links[2].string)
+            book_name = (a_links[1].string).strip()[book_name_size-1]
             book_link = ''.join(["http://www.flipkart.com",a_links[0].get('href')])
             isbn_pos = book_link.find('pid=') + len('pid=')
             book_isbn = book_link[isbn_pos:isbn_pos+13]
-            author_name = str(a_links[1].string)
+            author_name = (a_links[2].string).strip()[:author_name_size-1]
             book_price = book.find('div',{'class':'pu-final'}).text
             book_price = int((book_price.strip())[3:]) #[3:] removes leading 'Rs. '
             data[book_isbn] = [book_name,author_name,book_price,book_link]
