@@ -123,7 +123,7 @@ while True:
         for book in book_boxes:
             #title_wrapper_div = book.find('div',{'class':'lu-title-wrapper'})
             a_links = book.findAll('a')
-            book_name = (a_links[1].string).strip()[book_name_size-1]
+            book_name = (a_links[1].string).strip()[:book_name_size-1]
             book_link = ''.join(["http://www.flipkart.com",a_links[0].get('href')])
             isbn_pos = book_link.find('pid=') + len('pid=')
             book_isbn = book_link[isbn_pos:isbn_pos+13]
