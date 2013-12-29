@@ -35,7 +35,7 @@ a:hover
 
 .div1
 {	width:700px;
-	height:450px;
+	height:500px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:70px;
@@ -75,7 +75,7 @@ a:hover
 	margin-top: 6%;
 	color:white;
 	width:100%;
-	font-family: 'Arvo', serif;
+	font-family: 'Lato', sans-serif;
 	font-weight: 400;
 	font-size: 14;
 }
