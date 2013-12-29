@@ -125,7 +125,8 @@ while True:
             book_price = book.find('div',{'class':'pu-final'}).text
             book_price = int((book_price.strip())[3:]) #[3:] removes leading 'Rs. '
             data[book_isbn] = [book_name,author_name,book_price,book_link]
-        print data
+        #Debug:
+        #print data
         database_insert()
         #soup.findAll('a',)
 #except Exception, e:
