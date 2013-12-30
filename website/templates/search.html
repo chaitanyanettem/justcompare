@@ -13,6 +13,7 @@ $code:
 	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
 	<!--<link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>-->
 	<link rel="icon" type="image/png" href="/justcompare/static/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="http://cdn.webrupee.com/font"> 
 	<script type="text/javascript" src="/justcompare/static/search/jquery.js"> </script>
 	<link rel="stylesheet" type="text/css" href="/justcompare/static/search/jquery-ui.css" />   
 	<script type="text/javascript" src="/justcompare/static/search/auto_script.js"> </script>
@@ -47,16 +48,25 @@ $code:
 							</a>
 							<div class="detail_div">
 								<a href=$booklink>
-									<span class = "arvofontheavy">$i.book_name</span>
+									<span class = "arvofontheavy">
+										$if len(i.book_name)>40:
+											$i.book_name[:40] ...
+										$else:
+											$i.book_name
+									</span>
 								</a>
 								<br/>
 								<span class = "arvofontnorm" style="font-size:17">
-								$if i.author_name != 'NIL':
-									--by $i.author_name<br/>
-								$else:
-									Unknown Author<br/>
+									$if i.author_name != 'NIL':
+										$if len(i.author_name)>25:
+											-- $i.author_name[:25] ...
+										$else:
+											-- $i.author_name
+									$else:
+										Unknown Author<br/>
 								</span>
-								<span class="arvofontnorm" style="font-size:15">ISBN: $i.isbn</span>
+								<span class="arvofontnorm" style="font-size:15"><br/>Lowest Available: <span class="WebRupee">Rs.</span>$i.min_price</span><br/>
+								<span class="arvofontnorm" style="font-size:14">ISBN: $i.isbn</span>
 							</div>
 						</div>
 					$else:
@@ -66,16 +76,25 @@ $code:
 							</a>
 							<div class="detail_div">
 								<a href=$booklink>
-									<span class = "arvofontheavy">$i.book_name</span>
+									<span class = "arvofontheavy">
+										$if len(i.book_name)>40:
+											$i.book_name[:40] ...
+										$else:
+											$i.book_name
+									</span>
 								</a>
 								<br/>
 								<span class = "arvofontnorm" style="font-size:17">
-								$if i.author_name != 'NIL':
-									--by $i.author_name<br/>
-								$else:
-									Unknown Author<br/>
+									$if i.author_name != 'NIL':
+										$if len(i.author_name)>25:
+											-- $i.author_name[:25] ...
+										$else:
+											-- $i.author_name
+									$else:
+										Unknown Author<br/>
 								</span>
-								<span class="arvofontnorm" style="font-size:15">ISBN: $i.isbn</span>
+								<span class="arvofontnorm" style="font-size:15"><br/>Lowest Available: <span class="WebRupee">Rs.</span>$i.min_price</span><br/>
+								<span class="arvofontnorm" style="font-size:14">ISBN: $i.isbn</span>
 							</div>
 						</div>
 					$code:
@@ -84,18 +103,19 @@ $code:
 			$else:
 				<div class="$lposition" id="overlay">
 					<h5>
-						<p style="left-margin:5px;right-margin:5px;">Unfortunately we have no matching books.
-						We are continually updating our repository. 
-						So rest assured with the knowledge that if 
-						someone is selling this book it will show 
-						up here very soon!</p>
+						<p style="margin:5px;">
+						Unfortunately we have no matching books. Maybe you tried insignificant words like off, an & the? Try adding the author's name or the ISBN to the search.
+						</p>
+						<p style="left-margin:5px;right-margin:5px;">
+						We are continually expanding our coverage. Rest assured that if the book exists it will show up here soon!</p>
 		
 					</h5>
 				</div>
-			</div>
+		<br/><br/>
 		<div class="bottom-bar">
 			<span style="float:right;">Site Design, Logo © JustCompare.in</span>
 			<span style="float:left;"> Crafted with love in Bangalore.</span>
+		</div>
 		</div>
 	</div>
 </body>

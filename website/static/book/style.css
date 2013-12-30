@@ -113,6 +113,8 @@ box-shadow:0px 1px 6px 3px #000000;
 {	position:relative;
 	margin-top:100px;
 	margin-left:2px;
+	margin-right: 30px;
+	text-align: justify;
 	font-size:25pt;
 	font-family:"Times New Roman", Times, serif;
 	font-weight: bold;
@@ -135,7 +137,6 @@ box-shadow:0px 1px 6px 3px #000000;
 
 .bookdesc
 {
-		width:50%;
 		height:95%;
 		float: center;
 		margin-left:260px;
@@ -292,7 +293,8 @@ box-shadow:5px 7px 6px 0px rgba(119, 119, 119, 0.82);
 {
 	float: center;
 	margin-top: -20px;
-	width: 100%;
+	text-align: justify;
+	margin-right: 30px;
 	height: 50%;
 	color: #ffffff;
 }
