@@ -17,11 +17,9 @@ urls = (
 
 class index:
 	def GET(self):
-		#books = db.select('books_bookdata')
-		#name = 'Deepak'
-		#i = web.input(name=None)
-		what = 'count(isbn)'
-		count = db.select('books_bookdata', what=what)
+		#what = 'count(isbn)'
+		#count = db.select('books_bookdata', what=what)
+		count = 1200000
 		return render.index(count)
 
 class search:
@@ -59,15 +57,7 @@ class book:
 			gbooks = json.load(urllib2.urlopen(gbooks))
 			descr = gbooks['items'][0]['volumeInfo']['description']
 			if len(descr)>350:
-				i = 350
-				while True:
-					if descr[i] == '.':
-						descr = descr[:i]
-						break
-					if i>355:
-						descr = descr[:i]+"..."
-						break
-					i += 1
+				descr = ''.join([descr,"..."])
 		except:
 			descr="Sorry! Description currently unavailable."
 		return render.book(book_details,descr)
